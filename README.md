@@ -16,15 +16,63 @@ Complete this checklist **before** the session so you can follow along with slas
 **Basic prompt** (copy-paste for `/speckit.specify` or discussion). This is the same **Input** described as follows 
 
 ```text
-We already have an OpenAPI spec for a Petstore backend at ‎`https://petstore3.swagger.io/api/v3/openapi.json`.
+Build a "Petstore Web Console" — a browser-based management UI for pet-store staff
+(clerks and managers) who have no developer or API knowledge.
 
-I want to build a “Petstore Web Console” UI client that allows non-technical users to:
+## Backend contract
+The existing Petstore REST API is the sole backend. The OpenAPI spec is at:
+https://petstore3.swagger.io/api/v3/openapi.json
+The console MUST NOT invent endpoints or add a backend-for-frontend layer.
+All client types and query hooks should be auto-generated from this spec.
 
- ▫ Browse pets by status, view details, create/edit/delete pets.
+## Wireframes / design system
+Stitch wireframes are the authoritative visual reference:
+https://stitch.withgoogle.com/projects/823448846038334076
+The design system ("The Curated Console") uses Material 3 tonal palette tokens,
+Manrope + Inter typography, a "No-Line Rule" (boundaries via surface-color shifts,
+never 1px borders), vertical indicator-pill sidebar navigation, and glassmorphism
+for modals. Follow it exactly.
 
- ▫ View inventory and create/cancel orders.
+## User journeys (by priority)
 
- ▫ Optionally manage users.Please generate a functional spec focusing on user journeys and UX, not implementation details. Treat the OpenAPI as the backend contract.
+### P1 — must have
+1. **Login / Logout** — OAuth2 login screen; redirect to catalogue on success;
+   session-expiry handling; logout from the nav bar.
+2. **Browse Pet Catalogue** — Paginated card grid filtered by status
+   (Available / Pending / Sold, default: Available). Client-side pagination with
+   page controls ("Showing 1–12 of 48"), sort dropdown ("Sort by: Newest"),
+   tag-based search, and a friendly empty state.
+3. **View Pet Detail** — Full detail view (name, category, status, tags, photo
+   gallery) reachable from any card. Back-navigation preserves filter state.
+4. **Create Pet** — "Add Pet" form with sections: Core Identity (name [required],
+   category, status), Discovery Tags (chip-based input — type + Enter to add,
+   × to remove), Media Gallery (image upload with preview, JPG/PNG, max 5 MB).
+
+### P2 — important
+5. **Edit Pet** — Pre-populated edit form from the detail view; same validations
+   as create; optimistic update.
+6. **Delete Pet** — Confirmation dialog; handle 404 race condition ("This pet
+   no longer exists").
+7. **View Inventory** — Dashboard with 3 status-count cards (Available, Pending,
+   Sold); each card links to the catalogue pre-filtered by that status.
+   No charts or time-series in v1.
+8. **Place Order** — From pet detail of an available pet; form with quantity
+   (default 1); confirmation screen (order ID, status, ship date).
+
+### P3 — optional / admin
+9. **View & Cancel Orders** — Look up by numeric order ID; cancel only "placed"
+   orders; disable cancel for "approved" / "delivered."
+10. **User Management** — Admin-only section; CRUD on user accounts
+    (username, name, email, phone, password); hidden from non-admin nav.
+
+## Cross-cutting requirements
+- User-friendly error messages for all failures (no raw status codes).
+- Loading indicators within 200ms of any data fetch.
+- Prevent double-submission on all write operations.
+- Client-side form validation before API calls.
+- Desktop + tablet; mobile is out of scope for v1.
+- Extended pet attributes in wireframes (pricing, breed, weight, SKU, location)
+  are aspirational only — v1 uses only fields present in the OpenAPI spec.
  ```
 
 ```text
