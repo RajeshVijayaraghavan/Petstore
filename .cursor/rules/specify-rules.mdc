@@ -1,0 +1,40 @@
+---
+description: Project Development Guidelines
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# sdd-presentation Development Guidelines
+
+Auto-generated from all feature plans. Last updated: 2026-03-22
+
+## Active Technologies
+- N/A (front-end only; all persistence via Petstore REST API) (001-petstore-web-console)
+- TypeScript 5.x (strict mode), React 19, Node.js 20+ (build tooling) + Vite 6, React Router v7, TanStack Query v5, Zustand v5, React Hook Form v7, Zod, shadcn/ui (Radix + Tailwind CSS v4), Orval v8, react-oidc-contex (001-petstore-web-console)
+
+- TypeScript 5.x, React 19, Node.js 20+ (build tooling) + Vite 6, React Router v7, TanStack Query v5, Zustand v5, React Hook Form v7, Zod, shadcn/ui (Radix + Tailwind), Orval v8, react-oidc-contex (001-petstore-web-console)
+
+## Project Structure
+
+```text
+backend/
+frontend/
+tests/
+```
+
+## Commands
+
+npm test && npm run lint
+
+## Code Style
+
+TypeScript 5.x, React 19, Node.js 20+ (build tooling): Follow standard conventions
+
+## Recent Changes
+- 001-petstore-web-console: Added TypeScript 5.x (strict mode), React 19, Node.js 20+ (build tooling) + Vite 6, React Router v7, TanStack Query v5, Zustand v5, React Hook Form v7, Zod, shadcn/ui (Radix + Tailwind CSS v4), Orval v8, react-oidc-contex
+- 001-petstore-web-console: Added TypeScript 5.x, React 19, Node.js 20+ (build tooling) + Vite 6, React Router v7, TanStack Query v5, Zustand v5, React Hook Form v7, Zod, shadcn/ui (Radix + Tailwind), Orval v8, react-oidc-contex
+
+- 001-petstore-web-console: Added TypeScript 5.x, React 19, Node.js 20+ (build tooling) + Vite 6, React Router v7, TanStack Query v5, Zustand v5, React Hook Form v7, Zod, shadcn/ui (Radix + Tailwind), Orval v8, react-oidc-contex
+
+<!-- MANUAL ADDITIONS START -->
+<!-- MANUAL ADDITIONS END -->
