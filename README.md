@@ -12,9 +12,20 @@ Complete this checklist **before** the session so you can follow along with slas
 
 - `.cursor/commands/` — `/speckit.*` slash commands
 - `.specify/` — scripts, templates, and project constitution
-- `specs/001-petstore-web-console/` — sample feature spec, plan, and tasks for the exercise
 
-**Basic prompt** (copy-paste for `/speckit.specify` or discussion). This is the same **Input** described in [`specs/001-petstore-web-console/spec.md`](../../specs/001-petstore-web-console/spec.md):
+**Basic prompt** (copy-paste for `/speckit.specify` or discussion). This is the same **Input** described as follows 
+
+```text
+We already have an OpenAPI spec for a Petstore backend at ‎`https://petstore3.swagger.io/api/v3/openapi.json`.
+
+I want to build a “Petstore Web Console” UI client that allows non-technical users to:
+
+ ▫ Browse pets by status, view details, create/edit/delete pets.
+
+ ▫ View inventory and create/cancel orders.
+
+ ▫ Optionally manage users.Please generate a functional spec focusing on user journeys and UX, not implementation details. Treat the OpenAPI as the backend contract.
+ ```
 
 ```text
 Build a Petstore Web Console UI client that allows non-technical users to browse pets by status, view details, create/edit/delete pets, view inventory and create/cancel orders, and optionally manage users. The existing Petstore OpenAPI spec at https://petstore3.swagger.io/api/v3/openapi.json serves as the backend contract.
