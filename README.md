@@ -75,9 +75,6 @@ for modals. Follow it exactly.
   are aspirational only — v1 uses only fields present in the OpenAPI spec.
  ```
 
-```text
-Build a Petstore Web Console UI client that allows non-technical users to browse pets by status, view details, create/edit/delete pets, view inventory and create/cancel orders, and optionally manage users. The existing Petstore OpenAPI spec at https://petstore3.swagger.io/api/v3/openapi.json serves as the backend contract.
-```
 
 **If you cannot use GitHub yet:** Ask the instructor for the same prompt (and any handout) by email or chat; you can still read the public [Spec Kit](https://github.com/github/spec-kit) docs while access is sorted out.
 
